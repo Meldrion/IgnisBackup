@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     sceneCanvas = new SceneCanvas(this,QPoint(0,0),QSize(640,480),16);
     this->setCentralWidget(sceneCanvas);
 
+	// Create the Docks
     this->tilesetDock = new TilesetDock(this);
     this->sceneTreeDock = new SceneTreeDock(this);
 
