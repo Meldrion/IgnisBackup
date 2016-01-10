@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->tilesetDock = new TilesetDock(this);
     this->sceneTreeDock = new SceneTreeDock(this);
 
+	// Add the Docks
     this->addDockWidget(Qt::LeftDockWidgetArea,this->tilesetDock);
     this->addDockWidget(Qt::LeftDockWidgetArea,this->sceneTreeDock);
 
