@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->addDockWidget(Qt::LeftDockWidgetArea,this->tilesetDock);
     this->addDockWidget(Qt::LeftDockWidgetArea,this->sceneTreeDock);
 
+	// Center the form on the screen
     this->setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -27,6 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
             qApp->desktop()->availableGeometry()
         )
     );
+
+	// Connect Signal and slots
+	this->connect(this->ui->actionNew_Project, SIGNAL(triggered()), this, SLOT(newProjectTriggered()));
+	this->connect(this->ui->actionOpen_Project, SIGNAL(triggered()), this, SLOT(loadProjectTriggered()));
+	this->connect(this->ui->actionTexture_Atlas_Builder, SIGNAL(triggered()), this, SLOT(textureAtlasBuilderTriggered()));
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +41,7 @@ MainWindow::~MainWindow()
     delete sceneCanvas;
 }
 
-void MainWindow::on_actionNew_Project_triggered()
+void MainWindow::newProjectTriggered()
 {
     NewProjectDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted)
@@ -44,7 +50,16 @@ void MainWindow::on_actionNew_Project_triggered()
     }
 }
 
-void MainWindow::on_actionTexture_Atlas_Builder_triggered()
+void MainWindow::loadProjectTriggered()
+{
+	OpenProjectDialog dialog(this);
+	if (dialog.exec() == QDialog::Accepted)
+	{
+
+	}
+}
+
+void MainWindow::textureAtlasBuilderTriggered()
 {
     TextureAtlasBuilder dialog(this);
     if (dialog.exec() == QDialog::Accepted)

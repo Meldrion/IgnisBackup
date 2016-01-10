@@ -10,6 +10,7 @@
 #include "assets/project.h"
 #include "gui/newprojectdialog.h"
 #include "gui/textureatlasbuilder.h"
+#include "gui/openprojectdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,8 +25,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionNew_Project_triggered();
-    void on_actionTexture_Atlas_Builder_triggered();
+    void newProjectTriggered();
+	void loadProjectTriggered();
+	void textureAtlasBuilderTriggered();
 
 private:
     Ui::MainWindow *ui;

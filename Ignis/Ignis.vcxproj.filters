@@ -71,12 +71,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ignis.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ignis.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_ignis.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -87,9 +81,6 @@
       <Filter>Source Files\Assets</Filter>
     </ClCompile>
     <ClCompile Include="assets\globalresourcemanager.cpp">
-      <Filter>Source Files\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="ignis.cpp">
       <Filter>Source Files\Assets</Filter>
     </ClCompile>
     <ClCompile Include="assets\project.cpp">
@@ -182,19 +173,22 @@
     <ClCompile Include="component\qsfmlcanvas.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_openprojectdialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_openprojectdialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\openprojectdialog.cpp">
+      <Filter>Source Files\Gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="ignis.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="ignis.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="assets\icons.qrc">
       <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ignis.h">
-      <Filter>Header Files\Assets</Filter>
     </CustomBuild>
     <CustomBuild Include="component\tileset\tilesetcanvas.h">
       <Filter>Header Files\Components\Tileset</Filter>
@@ -223,11 +217,14 @@
     <CustomBuild Include="gui\textureatlasbuilder.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="gui\openprojectdialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="gui\openprojectdialog.h">
+      <Filter>Header Files\Components</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_ignis.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="assets\assetmanager.h">
       <Filter>Header Files\Assets</Filter>
     </ClInclude>
@@ -287,6 +284,9 @@
     </ClInclude>
     <ClInclude Include="component\qsfmlcanvas.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_openprojectdialog.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
