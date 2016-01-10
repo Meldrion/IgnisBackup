@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_EditTextureDetailsDialog_t {
     QByteArrayData data[4];
-    char stringdata[55];
+    char stringdata[59];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,13 +30,13 @@ struct qt_meta_stringdata_EditTextureDetailsDialog_t {
 static const qt_meta_stringdata_EditTextureDetailsDialog_t qt_meta_stringdata_EditTextureDetailsDialog = {
     {
 QT_MOC_LITERAL(0, 0, 24), // "EditTextureDetailsDialog"
-QT_MOC_LITERAL(1, 25, 21), // "on_toolButton_clicked"
-QT_MOC_LITERAL(2, 47, 0), // ""
-QT_MOC_LITERAL(3, 48, 6) // "accept"
+QT_MOC_LITERAL(1, 25, 25), // "btnLookForResourceClicked"
+QT_MOC_LITERAL(2, 51, 0), // ""
+QT_MOC_LITERAL(3, 52, 6) // "accept"
 
     },
-    "EditTextureDetailsDialog\0on_toolButton_clicked\0"
-    "\0accept"
+    "EditTextureDetailsDialog\0"
+    "btnLookForResourceClicked\0\0accept"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,7 +69,7 @@ void EditTextureDetailsDialog::qt_static_metacall(QObject *_o, QMetaObject::Call
     if (_c == QMetaObject::InvokeMetaMethod) {
         EditTextureDetailsDialog *_t = static_cast<EditTextureDetailsDialog *>(_o);
         switch (_id) {
-        case 0: _t->on_toolButton_clicked(); break;
+        case 0: _t->btnLookForResourceClicked(); break;
         case 1: _t->accept(); break;
         default: ;
         }

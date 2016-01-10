@@ -44,7 +44,7 @@ public:
     QLabel *label_5;
     QHBoxLayout *horizontalLayout;
     QLineEdit *edtTexturePath;
-    QToolButton *toolButton;
+    QToolButton *btnLookForResource;
     QFrame *line;
     QDialogButtonBox *buttonBox;
 
@@ -110,10 +110,10 @@ public:
 
         horizontalLayout->addWidget(edtTexturePath);
 
-        toolButton = new QToolButton(EditTextureDetailsDialog);
-        toolButton->setObjectName(QStringLiteral("toolButton"));
+        btnLookForResource = new QToolButton(EditTextureDetailsDialog);
+        btnLookForResource->setObjectName(QStringLiteral("btnLookForResource"));
 
-        horizontalLayout->addWidget(toolButton);
+        horizontalLayout->addWidget(btnLookForResource);
 
 
         formLayout->setLayout(0, QFormLayout::FieldRole, horizontalLayout);
@@ -151,7 +151,7 @@ public:
         label_3->setText(QApplication::translate("EditTextureDetailsDialog", "Position X", 0));
         label_4->setText(QApplication::translate("EditTextureDetailsDialog", "Position Y", 0));
         label_5->setText(QApplication::translate("EditTextureDetailsDialog", "Resource Location", 0));
-        toolButton->setText(QApplication::translate("EditTextureDetailsDialog", "...", 0));
+        btnLookForResource->setText(QApplication::translate("EditTextureDetailsDialog", "...", 0));
     } // retranslateUi
 
 };
