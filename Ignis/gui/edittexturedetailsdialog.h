@@ -27,7 +27,7 @@ public:
     int getTextureY();
 
 private slots:
-    void on_toolButton_clicked();
+	void btnLookForResourceClicked();
     void accept();
 
 private:

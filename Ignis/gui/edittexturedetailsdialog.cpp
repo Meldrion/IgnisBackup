@@ -8,12 +8,13 @@ EditTextureDetailsDialog::EditTextureDetailsDialog(QVector<QString>& listOfNames
     ui->setupUi(this);
     this->listOfNames = listOfNames;
 
-
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::ANIMATION_TYPE);
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::CHARACTER_TYPE);
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::TILESET_TYPE);
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::TERRAIN_TYPE);
 
+	this->connect(this->ui->btnLookForResource, SIGNAL(clicked()), this, SLOT(btnLookForResourceClicked()));
+	
 }
 
 EditTextureDetailsDialog::~EditTextureDetailsDialog()
@@ -21,7 +22,7 @@ EditTextureDetailsDialog::~EditTextureDetailsDialog()
     delete ui;
 }
 
-void EditTextureDetailsDialog::on_toolButton_clicked()
+void EditTextureDetailsDialog::btnLookForResourceClicked()
 {
     // Get the Desktop folder
     QString homeFolderPath = QDir::homePath();
