@@ -40,7 +40,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete sceneCanvas;
+    delete this->sceneCanvas;
+	delete this->tilesetDock;
+	delete this->sceneTreeDock;
 }
 
 void MainWindow::newProjectTriggered()
