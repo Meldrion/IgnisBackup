@@ -17,12 +17,15 @@ public:
     void setTexturePath(QString path);
     void setTextureName(QString name);
     QString getTextureName();
+	void setSelection(bool flag);
+	bool isSelected();
 private:
     int width;
     int height;
     QString texturePath;
     QPixmap* texture;
     QString name;
+	bool selected;
 signals:
 
 public slots:

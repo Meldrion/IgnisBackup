@@ -206,6 +206,18 @@
     <ClCompile Include="assets\scene\abstractscene.cpp">
       <Filter>Source Files\Assets\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="assets\scene\gamemap.cpp">
+      <Filter>Source Files\Assets\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="assets\scene\abstractlayer.cpp">
+      <Filter>Source Files\Assets\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_texturebuildertexture.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_texturebuildertexture.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ignis.qrc">
@@ -256,6 +268,12 @@
     <CustomBuild Include="component\scenetree\scenetree.h">
       <Filter>Source Files\Components\SceneTree</Filter>
     </CustomBuild>
+    <CustomBuild Include="component\texturebuilder\textureatlasbuilderscene.h">
+      <Filter>Header Files\Components\TextureBuilder</Filter>
+    </CustomBuild>
+    <CustomBuild Include="component\texturebuilder\texturebuildertexture.h">
+      <Filter>Header Files\Components\TextureBuilder</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assets\assetmanager.h">
@@ -276,16 +294,10 @@
     <ClInclude Include="component\scenetree\scenetreedock.h">
       <Filter>Source Files\Components\SceneTree</Filter>
     </ClInclude>
-    <ClInclude Include="component\texturebuilder\textureatlasbuilderscene.h">
-      <Filter>Header Files\Components\TextureBuilder</Filter>
-    </ClInclude>
     <ClInclude Include="component\texturebuilder\texturebuildercanvas.h">
       <Filter>Header Files\Components\TextureBuilder</Filter>
     </ClInclude>
     <ClInclude Include="component\texturebuilder\texturebuildersubtexture.h">
-      <Filter>Header Files\Components\TextureBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="component\texturebuilder\texturebuildertexture.h">
       <Filter>Header Files\Components\TextureBuilder</Filter>
     </ClInclude>
     <ClInclude Include="component\tileset\tilesetcanvastab.h">
@@ -322,6 +334,12 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="assets\scene\abstractscene.h">
+      <Filter>Header Files\Assets\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="assets\scene\gamemap.h">
+      <Filter>Header Files\Assets\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="assets\scene\abstractlayer.h">
       <Filter>Header Files\Assets\Scene</Filter>
     </ClInclude>
   </ItemGroup>

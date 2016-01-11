@@ -12,13 +12,13 @@ class TextureAtlasBuilderScene: public QGraphicsScene
 public:
     TextureAtlasBuilderScene(QWidget* parent = 0);
     void setTextureDimension(int width,int height);
+	TextureBuilderTexture* getRoot();
 private:
     int textureWidth;
     int textureHeight;
     TextureBuilderTexture* baseTexture;
 signals:
 
-public slots:
 };
 
 #endif // TEXTUREATLASBUILDERCANVAS_H

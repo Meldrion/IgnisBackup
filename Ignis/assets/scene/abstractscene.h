@@ -1,6 +1,8 @@
 #ifndef ABSTRACTSCENE_H
 #define ABSTRACTSCENE_H
 
+#include <QString>
+
 namespace Ignis
 {
 	class AbstractScene
@@ -8,6 +10,8 @@ namespace Ignis
 	public:
 		AbstractScene();
 		~AbstractScene();
+	private: 
+		QString name;
 	};
 }
 

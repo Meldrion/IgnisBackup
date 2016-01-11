@@ -6,6 +6,7 @@ TextureBuilderSubTexture::TextureBuilderSubTexture(QGraphicsItem* parent):QGraph
     this->height = 0;
     this->texture = 0x0;
     this->setFlag(ItemIsMovable);
+	this->selected = false;
 }
 
 TextureBuilderSubTexture::~TextureBuilderSubTexture()
@@ -23,9 +24,15 @@ void TextureBuilderSubTexture::paint(QPainter *painter, const QStyleOptionGraphi
 {
     painter->setPen(QPen(QColor(0,0,0,255)));
     if (!this->texture)
-        painter->fillRect(this->boundingRect(),QBrush(QColor(255,0,0,255)));
+        painter->fillRect(this->boundingRect(),QBrush(QColor(255,255,255,255)));
     else
         painter->drawPixmap(0,0,this->width,this->height,*this->texture);
+
+	if (selected)
+	{
+		painter->fillRect(this->boundingRect(), QBrush(QColor(255, 0, 0, 96)));
+	}
+
     painter->drawRect(this->boundingRect());
 }
 
@@ -62,4 +69,14 @@ void TextureBuilderSubTexture::setTextureName(QString name)
 QString TextureBuilderSubTexture::getTextureName()
 {
     return this->name;
+}
+
+void TextureBuilderSubTexture::setSelection(bool flag)
+{
+	this->selected = flag;
+}
+
+bool TextureBuilderSubTexture::isSelected()
+{
+	return this->selected;
 }

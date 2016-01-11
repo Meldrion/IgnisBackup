@@ -7,6 +7,11 @@ TextureAtlasBuilderScene::TextureAtlasBuilderScene(QWidget* parent): QGraphicsSc
     this->setBackgroundBrush(QBrush(QColor(128,128,128,255)));
 }
 
+TextureBuilderTexture* TextureAtlasBuilderScene::getRoot()
+{
+	return this->baseTexture;
+}
+
 void TextureAtlasBuilderScene::setTextureDimension(int width, int height)
 {
     this->textureWidth = width;

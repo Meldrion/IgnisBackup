@@ -8,6 +8,18 @@ TextureAtlasBuilder::TextureAtlasBuilder(QWidget *parent) :
     ui->setupUi(this);
     this->textureBuilderScene = new TextureAtlasBuilderScene(this);
     this->ui->textureBuilderCanvas->setScene(this->textureBuilderScene);
+
+	this->connect(this->ui->liTextures, SIGNAL(currentRowChanged(int)),
+		this, SLOT(liTextures_currentRowChanged(int)));
+
+	QGraphicsItem* item = this->textureBuilderScene->items().at(0);
+	TextureBuilderTexture* texture = dynamic_cast<TextureBuilderTexture*>(item);
+	
+	
+	this->connect(this->ui->liTextures, 
+				  SIGNAL(currentRowChanged(int)),
+				  texture,
+				  SLOT(selectedTextureChanged(int)));
 }
 
 TextureAtlasBuilder::~TextureAtlasBuilder()
@@ -38,18 +50,23 @@ void TextureAtlasBuilder::on_pushButton_clicked()
     EditTextureDetailsDialog dialog(listOfNames,this);
     if (dialog.exec() == QDialog::Accepted)
     {
-        TextureBuilderSubTexture* texture =
-                new TextureBuilderSubTexture();
+		TextureBuilderTexture* parent = this->textureBuilderScene->getRoot();
+		
+		TextureBuilderSubTexture* texture =
+			new TextureBuilderSubTexture(parent);
+
         texture->setTexturePath(dialog.getTexturePath());
         texture->setPos(dialog.getTextureX(),dialog.getTextureY());
         texture->setTextureName(dialog.getTextureName());
-        this->textureBuilderScene->addItem(texture);
 
         this->ui->liTextures->addItem(texture->getTextureName());
+
+		// Select the new Element
+		this->ui->liTextures->setCurrentRow(this->ui->liTextures->count() - 1);
     }
 }
 
-void TextureAtlasBuilder::on_liTextures_currentRowChanged(int currentRow)
+void TextureAtlasBuilder::liTextures_currentRowChanged(int currentRow)
 {
     ui->btnEdit->setEnabled(-1 < currentRow);
 }
