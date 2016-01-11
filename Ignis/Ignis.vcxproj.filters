@@ -218,6 +218,18 @@
     <ClCompile Include="GeneratedFiles\Release\moc_texturebuildertexture.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_textureatlasbuilderscene.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_textureatlasbuilderscene.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_texturebuildersubtexture.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_texturebuildersubtexture.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ignis.qrc">
@@ -274,6 +286,9 @@
     <CustomBuild Include="component\texturebuilder\texturebuildertexture.h">
       <Filter>Header Files\Components\TextureBuilder</Filter>
     </CustomBuild>
+    <CustomBuild Include="component\texturebuilder\texturebuildersubtexture.h">
+      <Filter>Header Files\Components\TextureBuilder</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assets\assetmanager.h">
@@ -295,9 +310,6 @@
       <Filter>Source Files\Components\SceneTree</Filter>
     </ClInclude>
     <ClInclude Include="component\texturebuilder\texturebuildercanvas.h">
-      <Filter>Header Files\Components\TextureBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="component\texturebuilder\texturebuildersubtexture.h">
       <Filter>Header Files\Components\TextureBuilder</Filter>
     </ClInclude>
     <ClInclude Include="component\tileset\tilesetcanvastab.h">

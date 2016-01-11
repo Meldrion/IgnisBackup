@@ -29,3 +29,4 @@ void TextureAtlasBuilderScene::setTextureDimension(int width, int height)
 
     this->setSceneRect(0,0,width,height);
 }
+

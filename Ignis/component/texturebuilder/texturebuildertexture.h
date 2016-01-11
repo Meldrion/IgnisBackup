@@ -16,6 +16,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
     void setDimension(int width,int height);
+	int indexForSubTexture(TextureBuilderSubTexture* subTexture);
 private:
     int width;
     int height;

@@ -23,6 +23,11 @@ void TextureBuilderTexture::setDimension(int width, int height)
     this->height = height;
 }
 
+int TextureBuilderTexture::indexForSubTexture(TextureBuilderSubTexture* subTexture)
+{
+	return this->childItems().indexOf(subTexture);
+}
+
 void TextureBuilderTexture::selectedTextureChanged(int index)
 {
 	QList<QGraphicsItem*> items = this->childItems();

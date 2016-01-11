@@ -61,6 +61,10 @@ void TextureAtlasBuilder::on_pushButton_clicked()
 
         this->ui->liTextures->addItem(texture->getTextureName());
 
+		
+		this->connect(texture, SIGNAL(selectedItemChanged(TextureBuilderSubTexture*)),
+			this, SLOT(textureSelectionChanged(TextureBuilderSubTexture*)));
+
 		// Select the new Element
 		this->ui->liTextures->setCurrentRow(this->ui->liTextures->count() - 1);
     }
@@ -69,4 +73,11 @@ void TextureAtlasBuilder::on_pushButton_clicked()
 void TextureAtlasBuilder::liTextures_currentRowChanged(int currentRow)
 {
     ui->btnEdit->setEnabled(-1 < currentRow);
+}
+
+
+void TextureAtlasBuilder::textureSelectionChanged(TextureBuilderSubTexture* texture)
+{
+	int index = this->textureBuilderScene->getRoot()->indexForSubTexture(texture);
+	this->ui->liTextures->setCurrentRow(index);
 }

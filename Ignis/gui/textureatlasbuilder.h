@@ -23,6 +23,7 @@ private slots:
     void on_comboBox_activated(const QString &value);
     void on_pushButton_clicked();
     void liTextures_currentRowChanged(int currentRow);
+	void textureSelectionChanged(TextureBuilderSubTexture* texture);
 
 private:
     Ui::TextureAtlasBuilder *ui;

@@ -1,6 +1,6 @@
 #include "texturebuildersubtexture.h"
 
-TextureBuilderSubTexture::TextureBuilderSubTexture(QGraphicsItem* parent):QGraphicsItem(parent)
+TextureBuilderSubTexture::TextureBuilderSubTexture(QGraphicsItem* parent) :QGraphicsObject(parent)
 {
     this->width = 0;
     this->height = 0;
@@ -79,4 +79,9 @@ void TextureBuilderSubTexture::setSelection(bool flag)
 bool TextureBuilderSubTexture::isSelected()
 {
 	return this->selected;
+}
+
+void TextureBuilderSubTexture::mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent)
+{
+	emit(selectedItemChanged(this));
 }

@@ -1,14 +1,16 @@
 #ifndef TEXTUREBUILDERSUBTEXTURE_H
 #define TEXTUREBUILDERSUBTEXTURE_H
 
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include <QPainter>
 #include <QRectF>
 #include <QString>
 #include <QPixmap>
+#include <QDebug>
 
-class TextureBuilderSubTexture : public QGraphicsItem
+class TextureBuilderSubTexture : public QGraphicsObject
 {
+	Q_OBJECT
 public:
     TextureBuilderSubTexture(QGraphicsItem* parent = 0);
     ~TextureBuilderSubTexture();
@@ -19,6 +21,7 @@ public:
     QString getTextureName();
 	void setSelection(bool flag);
 	bool isSelected();
+	void mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent);
 private:
     int width;
     int height;
@@ -26,9 +29,11 @@ private:
     QPixmap* texture;
     QString name;
 	bool selected;
-signals:
 
 public slots:
+
+signals :
+	void selectedItemChanged(TextureBuilderSubTexture* texture);
 };
 
 #endif // TEXTUREBUILDERSUBTEXTURE_H

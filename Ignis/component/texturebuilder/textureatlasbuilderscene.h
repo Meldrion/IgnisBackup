@@ -9,6 +9,7 @@
 
 class TextureAtlasBuilderScene: public QGraphicsScene
 {
+	Q_OBJECT
 public:
     TextureAtlasBuilderScene(QWidget* parent = 0);
     void setTextureDimension(int width,int height);
