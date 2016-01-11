@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>578</height>
+    <height>523</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -232,27 +232,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>355</x>
-     <y>568</y>
+     <y>619</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
-     <y>-10</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>buttonBox</sender>
-   <signal>accepted()</signal>
+   <signal>rejected()</signal>
    <receiver>TextureAtlasBuilder</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>286</x>
-     <y>568</y>
+     <x>585</x>
+     <y>619</y>
     </hint>
     <hint type="destinationlabel">
-     <x>210</x>
-     <y>-6</y>
+     <x>366</x>
+     <y>0</y>
     </hint>
    </hints>
   </connection>

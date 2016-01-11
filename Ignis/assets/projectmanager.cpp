@@ -51,7 +51,7 @@ const QVector<QString> ProjectManager::listProjectsInWorkspace()
     for (QStringList::iterator it = subFiles.begin();it != subFiles.end();++it)
     {
         QString current = *it;
-        if (QDir(this->workspaceFolderPath + "/" + current).exists())
+		if (current != "." &&  current != ".." && QDir(this->workspaceFolderPath + "/" + current).exists())
         {
             // Now this is the place where we need to check if the current dir is
             // a valid project

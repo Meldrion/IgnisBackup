@@ -2,6 +2,8 @@
 #define OPENPROJECTDIALOG_H
 
 #include <QDialog>
+#include <QFileDialog>
+#include "assets/projectmanager.h"
 #include "ui_openprojectdialog.h"
 
 class OpenProjectDialog : public QDialog
@@ -14,6 +16,9 @@ public:
 
 private:
 	Ui::OpenProjectDialog ui;
+	void initProjectList();
+private slots:
+	void btnLookForProjectPathClicked();
 };
 
 #endif // OPENPROJECTDIALOG_H
