@@ -92,5 +92,7 @@ void EditTextureDetailsDialog::init(TextureBuilderSubTexture* texture)
 	{
 		this->ui->edtTextureName->setText(texture->getTextureName());
 		this->ui->edtTexturePath->setText(texture->getTexturePath());
+		this->ui->spTextureX->setValue(texture->getX());
+		this->ui->spTextureY->setValue(texture->getY());
 	}
 }

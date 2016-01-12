@@ -79,6 +79,16 @@ QString TextureBuilderSubTexture::getTexturePath()
 	return this->texturePath;
 }
 
+int TextureBuilderSubTexture::getX()
+{
+	return this->x();
+}
+
+int TextureBuilderSubTexture::getY()
+{
+	return this->y();
+}
+
 void TextureBuilderSubTexture::setSelection(bool flag)
 {
 	this->selected = flag;
