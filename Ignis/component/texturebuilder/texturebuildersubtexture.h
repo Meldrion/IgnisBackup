@@ -19,6 +19,7 @@ public:
     void setTexturePath(QString path);
     void setTextureName(QString name);
     QString getTextureName();
+	QString getTexturePath();
 	void setSelection(bool flag);
 	bool isSelected();
 	void mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent);

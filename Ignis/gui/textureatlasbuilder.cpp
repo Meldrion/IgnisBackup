@@ -22,7 +22,6 @@ TextureAtlasBuilder::TextureAtlasBuilder(QWidget *parent) :
 
 	this->connect(this->ui->btnAdd, SIGNAL(clicked()), this, SLOT(btnAddClicked()));
 	this->connect(this->ui->btnEdit, SIGNAL(clicked()), this, SLOT(btnEditClicked()));
-
 }
 
 TextureAtlasBuilder::~TextureAtlasBuilder()
@@ -81,18 +80,23 @@ void TextureAtlasBuilder::btnAddClicked()
 
 void TextureAtlasBuilder::btnEditClicked()
 {
-	QVector<QString> listOfNames;
-	int itemCount = this->ui->liTextures->count();
-
-	for (int i = 0; i<itemCount; i++)
+	int index = this->ui->liTextures->currentRow();
+	TextureBuilderSubTexture* subTexture = this->textureBuilderScene->getRoot()->getSubTexture(index);
+	if (subTexture)
 	{
-		listOfNames.append(this->ui->liTextures->item(i)->text());
-	}
+		QVector<QString> listOfNames;
+		int itemCount = this->ui->liTextures->count();
 
-	EditTextureDetailsDialog dialog(listOfNames, this);
-	if (dialog.exec() == QDialog::Accepted)
-	{
+		for (int i = 0; i<itemCount; i++)
+		{
+			listOfNames.append(this->ui->liTextures->item(i)->text());
+		}
 
+		EditTextureDetailsDialog dialog(listOfNames, this,subTexture);
+		if (dialog.exec() == QDialog::Accepted)
+		{
+
+		}
 	}
 }
 

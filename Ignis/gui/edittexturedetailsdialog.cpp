@@ -1,11 +1,13 @@
 #include "edittexturedetailsdialog.h"
 #include "ui_edittexturedetailsdialog.h"
 
-EditTextureDetailsDialog::EditTextureDetailsDialog(QVector<QString>& listOfNames,QWidget *parent) :
+EditTextureDetailsDialog::EditTextureDetailsDialog(QVector<QString>& listOfNames,QWidget *parent,TextureBuilderSubTexture* texture) :
     QDialog(parent),
     ui(new Ui::EditTextureDetailsDialog)
 {
     ui->setupUi(this);
+
+	this->linkedTexture = texture;
     this->listOfNames = listOfNames;
 
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::ANIMATION_TYPE);
@@ -14,6 +16,8 @@ EditTextureDetailsDialog::EditTextureDetailsDialog(QVector<QString>& listOfNames
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::TERRAIN_TYPE);
 
 	this->connect(this->ui->btnLookForResource, SIGNAL(clicked()), this, SLOT(btnLookForResourceClicked()));
+
+	this->init(texture);
 	
 }
 
@@ -80,4 +84,13 @@ int EditTextureDetailsDialog::getTextureX()
 int EditTextureDetailsDialog::getTextureY()
 {
     return this->ui->spTextureY->value();
+}
+
+void EditTextureDetailsDialog::init(TextureBuilderSubTexture* texture)
+{
+	if (texture)
+	{
+		this->ui->edtTextureName->setText(texture->getTextureName());
+		this->ui->edtTexturePath->setText(texture->getTexturePath());
+	}
 }

@@ -9,6 +9,7 @@
 #include <QStandardPaths>
 #include <QDialog>
 #include "assets/globalresourcemanager.h"
+#include "component/texturebuilder/texturebuildersubtexture.h"
 
 namespace Ui {
 class EditTextureDetailsDialog;
@@ -19,7 +20,7 @@ class EditTextureDetailsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditTextureDetailsDialog(QVector<QString>& listOfNames,QWidget *parent = 0);
+    explicit EditTextureDetailsDialog(QVector<QString>& listOfNames,QWidget *parent = 0,TextureBuilderSubTexture* texture = 0);
     ~EditTextureDetailsDialog();
     QString getTexturePath();
     QString getTextureName();
@@ -31,8 +32,10 @@ private slots:
     void accept();
 
 private:
+	void init(TextureBuilderSubTexture* texture);
     Ui::EditTextureDetailsDialog *ui;
     QVector<QString> listOfNames;
+	TextureBuilderSubTexture* linkedTexture;
 };
 
 #endif // EDITTEXTUREDETAILSDIALOG_H

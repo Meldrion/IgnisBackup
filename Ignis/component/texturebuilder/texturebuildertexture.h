@@ -17,6 +17,7 @@ public:
     QRectF boundingRect() const;
     void setDimension(int width,int height);
 	int indexForSubTexture(TextureBuilderSubTexture* subTexture);
+	TextureBuilderSubTexture* getSubTexture(int index);
 private:
     int width;
     int height;

@@ -28,6 +28,16 @@ int TextureBuilderTexture::indexForSubTexture(TextureBuilderSubTexture* subTextu
 	return this->childItems().indexOf(subTexture);
 }
 
+TextureBuilderSubTexture* TextureBuilderTexture::getSubTexture(int index)
+{
+	QGraphicsItem* item = 0x0;
+	if (-1 < index && index < this->childItems().size())
+	{
+		item = this->childItems().at(index);
+	}
+	return dynamic_cast<TextureBuilderSubTexture*>(item);
+}
+
 void TextureBuilderTexture::selectedTextureChanged(int index)
 {
 	QList<QGraphicsItem*> items = this->childItems();

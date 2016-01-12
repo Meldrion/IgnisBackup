@@ -38,6 +38,9 @@ void TextureBuilderSubTexture::paint(QPainter *painter, const QStyleOptionGraphi
 
 void TextureBuilderSubTexture::setTexturePath(QString path)
 {
+
+	this->texturePath = path;
+
     if (this->texture)
     {
         delete this->texture;
@@ -69,6 +72,11 @@ void TextureBuilderSubTexture::setTextureName(QString name)
 QString TextureBuilderSubTexture::getTextureName()
 {
     return this->name;
+}
+
+QString TextureBuilderSubTexture::getTexturePath()
+{
+	return this->texturePath;
 }
 
 void TextureBuilderSubTexture::setSelection(bool flag)
