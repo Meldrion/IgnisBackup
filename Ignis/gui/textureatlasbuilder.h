@@ -1,6 +1,7 @@
 #ifndef TEXTUREATLASBUILDER_H
 #define TEXTUREATLASBUILDER_H
 
+#include <QListWidgetItem>
 #include <QDialog>
 #include <QDebug>
 #include "gui/edittexturedetailsdialog.h"
@@ -21,10 +22,12 @@ public:
 
 private slots:
     void on_comboBox_activated(const QString &value);
-    void on_pushButton_clicked();
+    void btnAddClicked();
+	void btnEditClicked();
     void liTextures_currentRowChanged(int currentRow);
 	void textureSelectionChanged(TextureBuilderSubTexture* texture);
-
+	void doubleClickEventOnItem(TextureBuilderSubTexture* texture);
+	void doubleClickEventOnListWidget(QListWidgetItem* item);
 private:
     Ui::TextureAtlasBuilder *ui;
     TextureAtlasBuilderScene* textureBuilderScene;

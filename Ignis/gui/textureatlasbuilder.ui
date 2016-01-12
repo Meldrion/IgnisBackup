@@ -102,7 +102,7 @@
            <item>
             <widget class="QComboBox" name="comboBox">
              <property name="currentText">
-              <string>256x256</string>
+              <string>64x64</string>
              </property>
              <item>
               <property name="text">
@@ -159,7 +159,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="btnAdd">
              <property name="text">
               <string>Add Texture</string>
              </property>
@@ -176,7 +176,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="btnRemove">
              <property name="text">
               <string>Remove Texture</string>
              </property>

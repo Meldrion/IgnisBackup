@@ -15,11 +15,14 @@ TextureAtlasBuilder::TextureAtlasBuilder(QWidget *parent) :
 	QGraphicsItem* item = this->textureBuilderScene->items().at(0);
 	TextureBuilderTexture* texture = dynamic_cast<TextureBuilderTexture*>(item);
 	
-	
 	this->connect(this->ui->liTextures, 
 				  SIGNAL(currentRowChanged(int)),
 				  texture,
 				  SLOT(selectedTextureChanged(int)));
+
+	this->connect(this->ui->btnAdd, SIGNAL(clicked()), this, SLOT(btnAddClicked()));
+	this->connect(this->ui->btnEdit, SIGNAL(clicked()), this, SLOT(btnEditClicked()));
+
 }
 
 TextureAtlasBuilder::~TextureAtlasBuilder()
@@ -37,7 +40,7 @@ void TextureAtlasBuilder::on_comboBox_activated(const QString &value)
     this->textureBuilderScene->setTextureDimension(textureWidth,textureHeight);
 }
 
-void TextureAtlasBuilder::on_pushButton_clicked()
+void TextureAtlasBuilder::btnAddClicked()
 {
     QVector<QString> listOfNames;
     int itemCount = this->ui->liTextures->count();
@@ -65,9 +68,32 @@ void TextureAtlasBuilder::on_pushButton_clicked()
 		this->connect(texture, SIGNAL(selectedItemChanged(TextureBuilderSubTexture*)),
 			this, SLOT(textureSelectionChanged(TextureBuilderSubTexture*)));
 
+		this->connect(texture, SIGNAL(itemReceivedDoubleClick(TextureBuilderSubTexture*)),
+			this, SLOT(doubleClickEventOnItem(TextureBuilderSubTexture*)));
+
+		this->connect(this->ui->liTextures, SIGNAL(itemDoubleClicked(QListWidgetItem*)), 
+			this, SLOT(doubleClickEventOnListWidget(QListWidgetItem*)));
+
 		// Select the new Element
 		this->ui->liTextures->setCurrentRow(this->ui->liTextures->count() - 1);
     }
+}
+
+void TextureAtlasBuilder::btnEditClicked()
+{
+	QVector<QString> listOfNames;
+	int itemCount = this->ui->liTextures->count();
+
+	for (int i = 0; i<itemCount; i++)
+	{
+		listOfNames.append(this->ui->liTextures->item(i)->text());
+	}
+
+	EditTextureDetailsDialog dialog(listOfNames, this);
+	if (dialog.exec() == QDialog::Accepted)
+	{
+
+	}
 }
 
 void TextureAtlasBuilder::liTextures_currentRowChanged(int currentRow)
@@ -80,4 +106,15 @@ void TextureAtlasBuilder::textureSelectionChanged(TextureBuilderSubTexture* text
 {
 	int index = this->textureBuilderScene->getRoot()->indexForSubTexture(texture);
 	this->ui->liTextures->setCurrentRow(index);
+}
+
+void TextureAtlasBuilder::doubleClickEventOnItem(TextureBuilderSubTexture* texture)
+{
+	textureSelectionChanged(texture);
+	btnEditClicked();
+}
+
+void TextureAtlasBuilder::doubleClickEventOnListWidget(QListWidgetItem* item)
+{
+	btnEditClicked();
 }

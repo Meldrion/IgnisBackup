@@ -85,3 +85,8 @@ void TextureBuilderSubTexture::mousePressEvent(QGraphicsSceneMouseEvent* mouseEv
 {
 	emit(selectedItemChanged(this));
 }
+
+void TextureBuilderSubTexture::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* mouseEvent)
+{
+	emit(itemReceivedDoubleClick(this));
+}

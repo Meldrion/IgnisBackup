@@ -22,6 +22,7 @@ public:
 	void setSelection(bool flag);
 	bool isSelected();
 	void mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent);
+	void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* mouseEvent);
 private:
     int width;
     int height;
@@ -34,6 +35,7 @@ public slots:
 
 signals :
 	void selectedItemChanged(TextureBuilderSubTexture* texture);
+	void itemReceivedDoubleClick(TextureBuilderSubTexture* texture);
 };
 
 #endif // TEXTUREBUILDERSUBTEXTURE_H
