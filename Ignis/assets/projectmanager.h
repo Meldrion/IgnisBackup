@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
+#include "assets/project.h"
 
 namespace Ignis
 {
@@ -19,6 +20,7 @@ namespace Ignis
         void setWorkspaceFolder(const QString& folder);
         QString getWorkspacePath();
         const QVector<QString> listProjectsInWorkspace();
+		Project* createNewProject(QString projectRoot,QString projectFolderName);
     private:
         ProjectManager();
         ~ProjectManager();
