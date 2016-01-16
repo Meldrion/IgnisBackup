@@ -20,8 +20,9 @@ NewProjectDialog::~NewProjectDialog()
 void NewProjectDialog::accept()
 {
 
-	QString base;
-	QString projectFolderName;
+	QString base = this->ui->edtWorkspace->text();
+	QString projectFolderName = this->ui->edtProjectFolder->text();
+
 	int returnCode = Ignis::Project::createProjectStructure(base, projectFolderName);
 
 	if (returnCode == 0)
