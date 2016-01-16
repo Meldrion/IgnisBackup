@@ -47,7 +47,7 @@ void EditTextureDetailsDialog::accept()
     QFile file(path);
     if (file.exists() && !name.isEmpty())
     {
-        if (!this->listOfNames.contains(name))
+        if (!this->listOfNames.contains(name) || (this->linkedTexture && this->linkedTexture->getTextureName() == name))
             QDialog::accept();
         else
         {

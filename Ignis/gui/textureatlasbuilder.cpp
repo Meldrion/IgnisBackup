@@ -95,7 +95,9 @@ void TextureAtlasBuilder::btnEditClicked()
 		EditTextureDetailsDialog dialog(listOfNames, this,subTexture);
 		if (dialog.exec() == QDialog::Accepted)
 		{
-
+			subTexture->setTextureName(dialog.getTextureName());
+			subTexture->setTexturePath(dialog.getTexturePath());
+			subTexture->setPos(dialog.getTextureX(), dialog.getTextureY());
 		}
 	}
 }
