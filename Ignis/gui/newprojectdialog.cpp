@@ -8,7 +8,7 @@ NewProjectDialog::NewProjectDialog(QWidget *parent) :
     ui->setupUi(this);
     QString path = Ignis::ProjectManager::getInstance()->getWorkspacePath();
     this->ui->edtWorkspace->setText(path);
-
+	this->generatedProject = 0x0;
 	connect(this->ui->btnLookForProjectPath, SIGNAL(clicked()), this, SLOT(btnLookForProjectPathClicked()));
 }
 
@@ -26,17 +26,38 @@ void NewProjectDialog::accept()
 
 	if (returnCode == 0)
 	{
-		QDialog::accept();
+		QString projectFullPath = base + "/" + projectFolderName;
+		Ignis::Project* project = new Ignis::Project(projectFullPath);
+		int projectFinalizeReturnCode = Ignis::Project::finalizeProject(project);
+
+		if (projectFinalizeReturnCode == 0)
+		{
+			this->generatedProject = project;
+			QDialog::accept();
+		}
+		else
+		{
+			// Output Error
+
+			// Delete the projectDummy
+			delete project;
+		}
 	}
 	else
 	{
 		// Give an Error Message
 		switch (returnCode)
 		{
+			// We need the error codes here
 			case -1: return;
 			default: return;
 		}
 	}
+}
+
+Ignis::Project* NewProjectDialog::getGeneratedProject()
+{
+	return this->generatedProject;
 }
 
 void NewProjectDialog::btnLookForProjectPathClicked()

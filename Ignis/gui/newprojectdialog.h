@@ -17,12 +17,14 @@ public:
     explicit NewProjectDialog(QWidget *parent = 0);
     ~NewProjectDialog();
 	void accept();
+	Ignis::Project* getGeneratedProject();
 
 private slots:
     void btnLookForProjectPathClicked();
 
 private:
     Ui::NewProjectDialog *ui;
+	Ignis::Project* generatedProject;
 };
 
 #endif // NEWPROJECTDIALOG_H
