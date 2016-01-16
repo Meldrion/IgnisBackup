@@ -17,6 +17,28 @@ NewProjectDialog::~NewProjectDialog()
     delete ui;
 }
 
+void NewProjectDialog::accept()
+{
+
+	QString base;
+	QString projectFolderName;
+	int returnCode = Ignis::Project::createProjectStructure(base, projectFolderName);
+
+	if (returnCode == 0)
+	{
+		QDialog::accept();
+	}
+	else
+	{
+		// Give an Error Message
+		switch (returnCode)
+		{
+			case -1: return;
+			default: return;
+		}
+	}
+}
+
 void NewProjectDialog::btnLookForProjectPathClicked()
 {
     QString projectFolder = Ignis::ProjectManager::getInstance()->getWorkspacePath();

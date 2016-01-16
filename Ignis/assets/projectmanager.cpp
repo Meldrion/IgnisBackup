@@ -164,9 +164,3 @@ void ProjectManager::readWorkspaceConfigXML()
                  << configFolderPath + ProjectManager::WORKSPACE_CONFIG_FILE_NAME;
     }
 }
-
-Project* ProjectManager::createNewProject(QString projectRoot, QString projectFolderName)
-{
-	//Project* project = new Project(projectRoot + "/" + );
-	return 0x0;
-}

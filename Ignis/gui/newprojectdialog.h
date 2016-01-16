@@ -16,6 +16,7 @@ class NewProjectDialog : public QDialog
 public:
     explicit NewProjectDialog(QWidget *parent = 0);
     ~NewProjectDialog();
+	void accept();
 
 private slots:
     void btnLookForProjectPathClicked();

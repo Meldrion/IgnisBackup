@@ -69,6 +69,11 @@ int Project::createProjectStructure(const QString& basePath, const QString& proj
 	}
 }
 
+int Project::finalizeProject(Project* project)
+{
+	return -1;
+}
+
 Project::Project(QString projectRoot)
 {
     this->projectRoot = projectRoot;

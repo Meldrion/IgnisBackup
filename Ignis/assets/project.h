@@ -25,6 +25,7 @@ namespace Ignis
 		static const QString SCRIPTS_FOLDER;
 
 		static int createProjectStructure(const QString& basePath, const QString& projectFolderName);
+		static int finalizeProject(Project* project);
 		Project(QString projectRoot);
 		void setProjectTitle(QString title);
 		void setProjectAuthor(QString author);
