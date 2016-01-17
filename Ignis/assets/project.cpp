@@ -72,46 +72,7 @@ int Project::createProjectStructure(const QString& basePath, const QString& proj
 
 int Project::finalizeProject(Project* project)
 {
-	QFile xmlFile(project->projectRoot + Project::PROJECT_XML);
-	if (xmlFile.open(QIODevice::WriteOnly))
-	{
-		QXmlStreamWriter xmlWriter(&xmlFile);
-		xmlWriter.setAutoFormatting(true);
-
-		// XML HEADER
-		xmlWriter.writeStartDocument();
-
-		xmlWriter.writeStartElement("ignis");
-		xmlWriter.writeStartElement("project");
-
-		// TITLE
-		xmlWriter.writeStartElement("title");
-		xmlWriter.writeCharacters(project->projectTitle);
-		xmlWriter.writeEndElement();
-
-		// AUTHOR
-		xmlWriter.writeStartElement("author");
-		xmlWriter.writeCharacters(project->projectAuthor);
-		xmlWriter.writeEndElement();
-
-		// COMPANY
-		xmlWriter.writeStartElement("company");
-		xmlWriter.writeCharacters(project->projectCompany);
-		xmlWriter.writeEndElement();
-
-		xmlWriter.writeEndElement();
-		xmlWriter.writeEndElement();
-		xmlWriter.writeEndDocument();
-
-		// Close the File
-		xmlFile.close();
-
-		return 0;
-	}
-	else
-	{
-		return -1;
-	}
+	return project->writeProjectXML()?0:-1;
 }
 
 Project::Project(QString projectRoot)
@@ -147,5 +108,44 @@ bool Project::loadProjectXML()
 
 bool Project::writeProjectXML()
 {
-	return true;
+	QFile xmlFile(this->projectRoot + Project::PROJECT_XML);
+	if (xmlFile.open(QIODevice::WriteOnly))
+	{
+		QXmlStreamWriter xmlWriter(&xmlFile);
+		xmlWriter.setAutoFormatting(true);
+
+		// XML HEADER
+		xmlWriter.writeStartDocument();
+
+		xmlWriter.writeStartElement("ignis");
+		xmlWriter.writeStartElement("project");
+
+		// TITLE
+		xmlWriter.writeStartElement("title");
+		xmlWriter.writeCharacters(this->projectTitle);
+		xmlWriter.writeEndElement();
+
+		// AUTHOR
+		xmlWriter.writeStartElement("author");
+		xmlWriter.writeCharacters(this->projectAuthor);
+		xmlWriter.writeEndElement();
+
+		// COMPANY
+		xmlWriter.writeStartElement("company");
+		xmlWriter.writeCharacters(this->projectCompany);
+		xmlWriter.writeEndElement();
+
+		xmlWriter.writeEndElement();
+		xmlWriter.writeEndElement();
+		xmlWriter.writeEndDocument();
+
+		// Close the File
+		xmlFile.close();
+
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

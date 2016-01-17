@@ -80,12 +80,18 @@ sf::Texture* AssetManager::getAsTexture(QString assetPath,bool isInteral)
         if (!texture->loadFromFile(path))
         {
             qDebug() << "Error loading resource !";
+			delete texture;
+			texture = 0x0;
         }
 
-        texture->setSmooth(true);
-        texture->setRepeated(false);
+		else
+		{
+			texture->setSmooth(true);
+			texture->setRepeated(false);
 
-        this->textureCollection.insert(assetPath,texture);
+			this->textureCollection.insert(assetPath, texture);
+		}
+
         return texture;
     }
 }
