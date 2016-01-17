@@ -9,6 +9,13 @@ NewProjectDialog::NewProjectDialog(QWidget *parent) :
     QString path = Ignis::ProjectManager::getInstance()->getWorkspacePath();
     this->ui->edtWorkspace->setText(path);
 	this->generatedProject = 0x0;
+
+	// Get the Username of the currently logged in user
+	QString name = qgetenv("USER");
+	if (name.isEmpty())
+		name = qgetenv("USERNAME");
+	this->ui->edtAuthor->setText(name);
+
 	connect(this->ui->btnLookForProjectPath, SIGNAL(clicked()), this, SLOT(btnLookForProjectPathClicked()));
 }
 
@@ -29,6 +36,11 @@ void NewProjectDialog::accept()
 	{
 		QString projectFullPath = base + "/" + projectFolderName;
 		Ignis::Project* project = new Ignis::Project(projectFullPath);
+		
+		project->setProjectTitle(this->ui->edtProjectTitle->text());
+		project->setProjectAuthor(this->ui->edtAuthor->text());
+		project->setProjectCompany(this->ui->edtCompany->text());
+
 		int projectFinalizeReturnCode = Ignis::Project::finalizeProject(project);
 
 		if (projectFinalizeReturnCode == 0)
@@ -42,6 +54,9 @@ void NewProjectDialog::accept()
 
 			// Delete the projectDummy
 			delete project;
+
+			QDir projDir;
+			projDir.rmdir(projectFullPath);
 		}
 	}
 	else

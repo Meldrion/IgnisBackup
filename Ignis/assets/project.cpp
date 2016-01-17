@@ -2,6 +2,7 @@
 
 using namespace Ignis;
 
+const QString Project::PROJECT_XML = "/project.xml";
 const QString Project::ASSET_FOLDER = "/asset";
 const QString Project::AUDIO_FOLDER = Project::ASSET_FOLDER + "/audio";
 const QString Project::TEXTURE_FOLDER = Project::ASSET_FOLDER + "/texture";
@@ -71,7 +72,46 @@ int Project::createProjectStructure(const QString& basePath, const QString& proj
 
 int Project::finalizeProject(Project* project)
 {
-	return -1;
+	QFile xmlFile(project->projectRoot + Project::PROJECT_XML);
+	if (xmlFile.open(QIODevice::WriteOnly))
+	{
+		QXmlStreamWriter xmlWriter(&xmlFile);
+		xmlWriter.setAutoFormatting(true);
+
+		// XML HEADER
+		xmlWriter.writeStartDocument();
+
+		xmlWriter.writeStartElement("ignis");
+		xmlWriter.writeStartElement("project");
+
+		// TITLE
+		xmlWriter.writeStartElement("title");
+		xmlWriter.writeCharacters(project->projectTitle);
+		xmlWriter.writeEndElement();
+
+		// AUTHOR
+		xmlWriter.writeStartElement("author");
+		xmlWriter.writeCharacters(project->projectAuthor);
+		xmlWriter.writeEndElement();
+
+		// COMPANY
+		xmlWriter.writeStartElement("company");
+		xmlWriter.writeCharacters(project->projectCompany);
+		xmlWriter.writeEndElement();
+
+		xmlWriter.writeEndElement();
+		xmlWriter.writeEndElement();
+		xmlWriter.writeEndDocument();
+
+		// Close the File
+		xmlFile.close();
+
+		return 0;
+	}
+	else
+	{
+		return -1;
+	}
 }
 
 Project::Project(QString projectRoot)

@@ -7,6 +7,10 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include <QMap>
+#include "assets/tileset.h"
+#include <QFile>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
 
 namespace  Ignis
 {
@@ -27,14 +31,21 @@ namespace  Ignis
         void removeSound(QString assetPath);
         //sf::Shader* getShader(QString shader);
         //void removeShader(QString assetPath);
+		void registerTilesetImage(QString tilesetImageName,QString textureName);
+		void unRegisterTilesetImage(QString tilesetImageName);
     private:
         QString basePath;
 
+		// Physical Resources
         QMap<QString,QImage*> qtImageCollection;
         QMap<QString,sf::Texture*> textureCollection;
         QMap<QString,sf::Music*> musicCollection;
         QMap<QString,sf::Sound*> soundCollection;
         //QMap<QString,sf::Shader*> shaderCollection;
+
+		// Logical Resources
+		//QMap<QString, > tilesetImageCollection;
+		//QMap<QString, Tileset*> tilesetCollection;
 
     signals:
 

@@ -13,7 +13,8 @@ namespace Ignis
 	class Project
 	{
 	public:
-
+		
+		static const QString PROJECT_XML;
 		static const QString ASSET_FOLDER;
 		static const QString AUDIO_FOLDER;
 		static const QString TEXTURE_FOLDER;

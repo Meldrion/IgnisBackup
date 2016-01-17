@@ -148,3 +148,13 @@ void AssetManager::removeSound(QString assetPath)
         this->soundCollection.remove(assetPath);
     }
 }
+
+void AssetManager::registerTilesetImage(QString tilesetImageName, QString textureName)
+{
+	//if (this->)
+}
+
+void AssetManager::unRegisterTilesetImage(QString tilesetImageName)
+{
+
+}

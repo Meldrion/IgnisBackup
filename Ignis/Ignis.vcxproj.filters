@@ -75,6 +75,12 @@
     <Filter Include="Header Files\Assets\Scene">
       <UniqueIdentifier>{cdeb9d5b-3db3-496f-a877-591b4ea01e38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Assets\ImageBasedAssets">
+      <UniqueIdentifier>{12d0b1fd-116f-4bcc-8aeb-b321150dd953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assets\ImageBasedAssets">
+      <UniqueIdentifier>{45f8b5b1-59da-4c56-aa0c-42d942d7bc33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\qrc_ignis.cpp">
@@ -230,6 +236,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_texturebuildersubtexture.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="assets\image\tilesetimage.cpp">
+      <Filter>Source Files\Assets\ImageBasedAssets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ignis.qrc">
@@ -353,6 +362,9 @@
     </ClInclude>
     <ClInclude Include="assets\scene\abstractlayer.h">
       <Filter>Header Files\Assets\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="assets\image\tilesetimage.h">
+      <Filter>Header Files\Assets\ImageBasedAssets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
