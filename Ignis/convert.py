@@ -106,7 +106,7 @@ def scanFileAndConvert(inputFilePath):
 	outputFile.write("# Copyright by Steines Fabien 2016\n")
 	outputFile.write("#" + "-" * 40 + "\n \n")
 
-	outputFile.write("QT	+= Core Gui\n\n")
+	outputFile.write("QT	+= core gui\n\n")
 	outputFile.write("greaterThan(QT_MAJOR_VERSION, 4): QT += widgets\n")
 	outputFile.write("TARGET = Ignis\n")
 	outputFile.write("TEMPLATE = app\n\n")
