@@ -68,6 +68,43 @@ def scanFileAndConvert(inputFilePath):
 	
 	print ("Writing Data to outputfile: " + outputFileName)	
 	
+	outputFile = open(outputFileName, 'w')
+	
+	# Write the base structure 
+	# Please note that this still contains dummy code
+	print "QT	+= Core Gui"
+	print "greaterThan(QT_MAJOR_VERSION, 4): QT += widgets"
+	print "TARGET = Ignis"
+	print "TEMPLATE = app"
+	
+	# Store the Length of the Source File List
+	sourceFileCount = len(sourceFiles)
+	
+	# Loop through the List
+	for i in range(0,sourceFileCount):
+		
+		# Check if this is the first element
+		if i == 0:
+			
+			# Check if after the first element
+			# there are more elements left 
+			if (i+1) >= sourceFileCount:
+				print "SOURCE += " + sourceFiles[i]
+			else: 
+				print "SOURCES += " + sourceFiles[i] + "\\"
+
+		else:
+
+			# Check if this is the last element
+			if (i+1) >= sourceFileCount:
+				print sourceFiles[i]
+			else: 
+				print sourceFiles[i] + "\\"
+	
+	# Close the file
+	outputFile.close()
+
+
 	print ("\n")
 	print("Done !")
 
