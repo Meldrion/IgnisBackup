@@ -61,8 +61,13 @@ def scanFileAndConvert(inputFilePath):
 			# Find the Index of the Value Data
 			startIndex = lineContent.index("\"")
 			endIndex = lineContent.rindex("\"")
-
+				
 			value = lineContent[startIndex + 1: endIndex ]
+			
+			# Change the path sperator from the windows style to the unix style
+			value = value.replace("\\","/")			
+
+			# Finally append the file in the correct list
 			if ".h" in value:
 				headerFiles.append(value)
 			else:
@@ -111,11 +116,18 @@ def scanFileAndConvert(inputFilePath):
 	outputFile.write("TARGET = Ignis\n")
 	outputFile.write("TEMPLATE = app\n\n")
 	
-	
 	# Write the Different List to the Files
 	writeListToFile(sourceFiles,"SOURCES",outputFile)
 	writeListToFile(headerFiles,"HEADERS",outputFile)
 	writeListToFile(uiFiles,"FORMS",outputFile)
+
+
+	# Write informations about the dependancies and lib files - static for the moment 
+	outputFile.write("LIBS += -L\"../SFML/GCC_X86/lib\"\n")
+	outputFile.write("CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system\n")
+	outputFile.write("CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d\n")
+	outputFile.write("INCLUDEPATH += \"../SFML/include\"\n")
+	outputFile.write("DEPENDPATH += \"../SFML/include\"\n")
 
 	# Close the file
 	outputFile.close()

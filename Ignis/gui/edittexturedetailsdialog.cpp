@@ -16,7 +16,6 @@ EditTextureDetailsDialog::EditTextureDetailsDialog(QVector<QString>& listOfNames
     this->ui->cbResourceType->addItem(Ignis::GlobalResourceManager::TERRAIN_TYPE);
 
 	this->connect(this->ui->btnLookForResource, SIGNAL(clicked()), this, SLOT(btnLookForResourceClicked()));
-
 	this->init(texture);
 	
 }
